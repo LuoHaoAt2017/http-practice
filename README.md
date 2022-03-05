@@ -18,7 +18,9 @@ network 中查看请求发现二次访问时，请求的 Size 显示 disk cache�
 
 服务器再验证：缓存到期了，那么缓存需要询问服务器缓存内容是否已经发生改变。
 
-
+条件请求首部
 使用条件方法进行服务器再验证
 - if-modified-since: <date>
 - if-none-match: <tags>
+
+将新鲜度检测和对象获取结合成了单个条件GET

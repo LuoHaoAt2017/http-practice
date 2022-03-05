@@ -5,12 +5,26 @@ const bodyParser = require("body-parser");
 const router = require("./routes");
 const app = express();
 
+app.use(express.static(path.resolve(__dirname, "assets")));
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static(path.resolve(__dirname, 'assets')));
+
 app.use(
   cors({
     origin: "http://localhost:8090",
+    methods: [
+      "GET",
+      "PUT",
+      "POST",
+      "PUT",
+      "DELETE",
+      "CONNECT",
+      "OPTIONS",
+      "TRACE",
+      "PATCH",
+    ],
+    allowedHeaders: ["Authorization", "Content-Type"],
   })
 );
 

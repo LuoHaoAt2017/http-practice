@@ -13,8 +13,8 @@ const sequelize = new Sequelize(
 
 const models = {};
 
-const employe = sequelize.define(
-  "Employe",
+const User = sequelize.define(
+  "User",
   {
     id: {
       type: DataTypes.UUID,
@@ -32,19 +32,19 @@ const employe = sequelize.define(
     },
   },
   {
-    // options
     sequelize: sequelize,
     createdAt: "created_time",
     updatedAt: "updated_time",
+    freezeTableName: true, // 停止 Sequelize 执行自动复数化。 Sequelize 将推断表名称等于模型名称,而无需进行任何修改。
   }
 );
 
-models.Employe = employe;
+models.User = User;
 
-(async function() {
+(async function () {
   try {
     await sequelize.authenticate();
-    await sequelize.sync({ force: true });
+    await sequelize.sync({ force: false });
     console.log("Connection has been established successfully.");
   } catch (error) {
     console.error("Unable to connect to the database:", error);
