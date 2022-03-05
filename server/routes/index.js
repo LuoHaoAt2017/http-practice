@@ -1,6 +1,7 @@
 const express = require("express");
 const Router = express.Router;
 const router = new Router();
+const { Employe } = require('../model');
 
 router.get("/hello", function (req, res) {
   // 缓存十秒钟
