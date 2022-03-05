@@ -57,6 +57,6 @@ module.exports = {
     })
   ],
   devServer: {
-    port: 8099
+    port: 8090,
   },
 };
